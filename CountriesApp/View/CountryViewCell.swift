@@ -7,8 +7,17 @@
 
 import UIKit
 
+struct CountryData {
+    var name: String
+    var capital: String
+    var region: String
+    var flag: String
+}
+
 class CountryViewCell: UITableViewCell {
 
+    // MARK: - Properties
+    
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var capitalLbl: UILabel!
     @IBOutlet weak var regionLbl: UILabel!
@@ -19,7 +28,7 @@ class CountryViewCell: UITableViewCell {
     @IBOutlet weak var capitalInfoLbl: UILabel!
     @IBOutlet weak var regionInfoLbl: UILabel!
     
-    var countryData: Country? {
+    var countryData: CountryData? {
         didSet {
             configureUI()
         }

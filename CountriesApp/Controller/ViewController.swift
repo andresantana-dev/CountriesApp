@@ -15,8 +15,8 @@ class ViewController: UIViewController, AlertHelper {
     
     private let tableViewId = "CountryCell"
     
-    private lazy var viewModel: CountryVM = {
-        let viewModel = CountryVM()
+    private lazy var viewModel: CountryListVM = {
+        let viewModel = CountryListVM()
         viewModel.set(delegate: self)
         return viewModel
     }()
@@ -25,6 +25,7 @@ class ViewController: UIViewController, AlertHelper {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.viewModel.getCountries()
         setupTableView()
         configureNavigationBar(withTitle: "countries".localized, prefersLargeTitles: true)
     }
@@ -55,23 +56,24 @@ class ViewController: UIViewController, AlertHelper {
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return self.viewModel.numberOfSections
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: tableViewId, for: indexPath) as! CountryViewCell
-        cell.countryData = viewModel.countries?[indexPath.section]
+        let vm = self.viewModel.countryAtIndex(at: indexPath.section)
+        cell.countryData = CountryData(name: vm.name, capital: vm.capital, region: vm.region, flag: vm.flag)
         return cell
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return viewModel.countries?.count ?? 0
+        return self.viewModel.numberOfRows
 
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let countryDetails = viewModel.countries?[indexPath.section] else { return }
-        self.displayActionSheet(subregion: countryDetails.subregion, demonym: countryDetails.demonym)
+        let vm = self.viewModel.countryAtIndex(at: indexPath.section)
+        self.displayActionSheet(subregion: vm.subregion, demonym: vm.demonym)
     }
 }
 

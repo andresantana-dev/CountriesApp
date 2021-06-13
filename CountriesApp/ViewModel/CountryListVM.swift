@@ -16,10 +16,7 @@ class CountryListVM: NSObject {
     // MARK: - Properties
     
     private weak var delegate: CountryVMDelegate? = nil
-    
-    private var isSuccess = true
-    private var fetchError: ServiceError? = nil
-        
+            
     public var countries: [CountryVM]
             
     override init() {

@@ -124,10 +124,13 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="capitalInfoLbl" destination="ddx-Be-0hD" id="xEH-nF-jRi"/>
                 <outlet property="capitalLbl" destination="uJg-bP-RPn" id="xki-NZ-YrE"/>
                 <outlet property="flagLbl" destination="nvI-6a-U5k" id="11y-sD-7de"/>
                 <outlet property="horizontalStackView" destination="BVa-do-6hS" id="Jg9-sR-o7f"/>
+                <outlet property="nameInfoLbl" destination="4QK-5t-hc7" id="Vkt-B7-MJ0"/>
                 <outlet property="nameLbl" destination="ACH-2N-dvQ" id="FOA-DU-zCy"/>
+                <outlet property="regionInfoLbl" destination="nJS-nU-MSS" id="ado-nd-R23"/>
                 <outlet property="regionLbl" destination="Jtg-Mg-YfB" id="lFT-Pc-71p"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="102.45535714285714"/>

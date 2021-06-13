@@ -16,11 +16,11 @@ enum ServiceError: Error, CustomNSError {
     
     var localizedDescription: String {
         switch self {
-        case .apiError: return "Failed to fetch data"
-        case .invalidEndpoint: return "Invalid endpoint"
-        case .invalidResponse: return "Invalid response"
-        case .noData: return "No data"
-        case .serializationError: return "Failed to decode data"
+        case .apiError: return "failed_to_fetch_data".localized
+        case .invalidEndpoint: return "invalid_endpoint".localized
+        case .invalidResponse: return "invalid_response".localized
+        case .noData: return "no_data".localized
+        case .serializationError: return "failed_to_decode_data".localized
         }
     }
 }

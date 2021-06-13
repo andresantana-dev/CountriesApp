@@ -51,6 +51,10 @@ extension String {
         }
         return String(s)
     }
+    
+    var localized: String {
+        return NSLocalizedString(self, comment: "")
+    }
 }
 
 extension UIView {

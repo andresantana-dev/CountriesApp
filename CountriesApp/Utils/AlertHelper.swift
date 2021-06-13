@@ -13,7 +13,7 @@ protocol AlertHelper where Self: UIViewController {
 
 extension AlertHelper {
     func showAlert(_ title: String, message: String) {
-        let okAction = UIAlertAction(title: "OK", style: .cancel)
+        let okAction = UIAlertAction(title: "ok".localized, style: .cancel)
         self.showAlert(title, message: message, actions: [okAction])
     }
 

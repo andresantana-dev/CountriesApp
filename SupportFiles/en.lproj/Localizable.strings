@@ -1,0 +1,24 @@
+/* 
+  Localizable.strings
+  CountriesApp
+
+  Created by André Santana on 13/06/2021.
+  
+*/
+
+
+"countries" = "Countries";
+"name" = "Name:";
+"capital" = "Capital:";
+"region" = "Region:";
+"subregion" = "Subregion: ";
+"denomym" = "Denomym: ";
+"ok" = "OK";
+"country_details" = "Country Details";
+"cancel" = "Cancel";
+"error" = "ERROR";
+"failed_to_fetch_data" = "Failed to fetch data";
+"invalid_endpoint" = "Invalid endpoint";
+"invalid_response" = "Invalid response";
+"no_data" = "No data";
+"failed_to_decode_data" = "Failed to decode data";

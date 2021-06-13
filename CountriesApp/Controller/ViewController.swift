@@ -26,7 +26,7 @@ class ViewController: UIViewController, AlertHelper {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        configureNavigationBar(withTitle: "Countries", prefersLargeTitles: true)
+        configureNavigationBar(withTitle: "countries".localized, prefersLargeTitles: true)
     }
     
     // MARK: - Helpers
@@ -42,10 +42,10 @@ class ViewController: UIViewController, AlertHelper {
     }
     
     private func displayActionSheet(subregion: String, demonym: String) {
-        let optionMenu = UIAlertController(title: nil, message: "Country Details", preferredStyle: .actionSheet)
-        let subregionAction = UIAlertAction(title: "Subregion: \(subregion)", style: .default)
-        let demonymAction = UIAlertAction(title: "Demonym: \(demonym)", style: .default)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        let optionMenu = UIAlertController(title: nil, message: "country_details".localized, preferredStyle: .actionSheet)
+        let subregionAction = UIAlertAction(title: "subregion".localized + subregion, style: .default)
+        let demonymAction = UIAlertAction(title: "denomym".localized + demonym, style: .default)
+        let cancelAction = UIAlertAction(title: "cancel".localized, style: .cancel)
         optionMenu.addAction(subregionAction)
         optionMenu.addAction(demonymAction)
         optionMenu.addAction(cancelAction)
@@ -80,7 +80,7 @@ extension ViewController: CountryVMDelegate {
     func handler(_ finished: Bool, _ error: ServiceError?) {
         Loader.shared.hide()
         if let error = error {
-            showAlert("ERROR", message: error.localizedDescription)
+            showAlert("error".localized, message: error.localizedDescription)
             return
         }
         tableView.reloadData()

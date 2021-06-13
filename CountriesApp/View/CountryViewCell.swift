@@ -15,6 +15,10 @@ class CountryViewCell: UITableViewCell {
     @IBOutlet weak var flagLbl: UILabel!
     @IBOutlet weak var horizontalStackView: UIStackView!
     
+    @IBOutlet weak var nameInfoLbl: UILabel!
+    @IBOutlet weak var capitalInfoLbl: UILabel!
+    @IBOutlet weak var regionInfoLbl: UILabel!
+    
     var countryData: Country? {
         didSet {
             configureUI()
@@ -33,6 +37,10 @@ class CountryViewCell: UITableViewCell {
         self.capitalLbl.text = countryData.capital
         self.regionLbl.text = countryData.region
         self.flagLbl.text = countryData.flag.flag
+        
+        self.nameInfoLbl.text = "name".localized
+        self.capitalInfoLbl.text = "capital".localized
+        self.regionInfoLbl.text = "region".localized
                         
         self.horizontalStackView.customize(backgroundColor: .systemBlue, radiusSize: 25)
         self.horizontalStackView.backgroundColor = .clear

@@ -40,6 +40,17 @@ class ViewController: UIViewController, AlertHelper {
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    private func displayActionSheet(subregion: String, demonym: String) {
+        let optionMenu = UIAlertController(title: nil, message: "Country Details", preferredStyle: .actionSheet)
+        let subregionAction = UIAlertAction(title: "Subregion: \(subregion)", style: .default)
+        let demonymAction = UIAlertAction(title: "Demonym: \(demonym)", style: .default)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        optionMenu.addAction(subregionAction)
+        optionMenu.addAction(demonymAction)
+        optionMenu.addAction(cancelAction)
+        self.present(optionMenu, animated: true, completion: nil)
+    }
 }
 // MARK: - UITableViewDelegate, UITableViewDataSource
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -59,21 +70,19 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let detailsVC = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "CountryDetailsViewController") as? CountryDetailsViewController {
-            detailsVC.countryDetails = viewModel.countries?[indexPath.section]
-            self.navigationController?.pushViewController(detailsVC, animated: true)
-        }
+        guard let countryDetails = viewModel.countries?[indexPath.section] else { return }
+        self.displayActionSheet(subregion: countryDetails.subregion, demonym: countryDetails.demonym)
     }
 }
 
 // MARK: - CountryVMDelegate
 extension ViewController: CountryVMDelegate {
     func handler(_ finished: Bool, _ error: ServiceError?) {
+        Loader.shared.hide()
         if let error = error {
             showAlert("ERROR", message: error.localizedDescription)
             return
         }
         tableView.reloadData()
-        Loader.shared.hide()
     }
 }

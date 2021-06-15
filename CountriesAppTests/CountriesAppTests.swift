@@ -17,8 +17,8 @@ class CountryAppTests: QuickSpec {
             context("status code is 200") {
                 var model: ModelMock?
                 it("the response needs to have name, capital, region and flag without error") {
-                    self.request(mock:  .get_countries, statusCode: 200) { dictionary in
-                        model = ModelMock(dictionary: dictionary)
+                    self.request(mock:  .get_countries, statusCode: 200) { result in
+                        model = ModelMock(countries: result)
                     }
                     
                     expect(model?.hasName).toEventually(beTrue())

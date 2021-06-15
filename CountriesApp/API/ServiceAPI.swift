@@ -30,7 +30,6 @@ class ServiceAPI {
     // MARK: - Properties
     
     static let shared = ServiceAPI()
-    private init() {}
     
     private let apiKey = Private.apiKey
     private let apiURL = "https://restcountries-v1.p.rapidapi.com/all"

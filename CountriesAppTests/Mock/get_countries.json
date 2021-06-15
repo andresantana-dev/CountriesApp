@@ -1,0 +1,26 @@
+[
+    {
+        "name":"Afghanistan",
+        "capital":"Kabul",
+        "region":"Asia",
+        "subregion":"Southern Asia",
+        "demonym":"Afghan",
+        "alpha2Code":"AF"
+    },
+    {
+        "name":"Åland Islands",
+        "capital":"Mariehamn",
+        "region":"Europe",
+        "subregion":"Northern Europe",
+        "demonym":"Ålandish",
+        "alpha2Code":"AX"
+    },
+    {
+        "name":"Albania",
+        "capital":"Tirana",
+        "region":"Europe",
+        "subregion":"Southern Europe",
+        "demonym":"Albanian",
+        "alpha2Code":"AL"
+    }
+]

@@ -53,5 +53,4 @@ DerivedData/
 # End of https://www.gitignore.io/api/xcode,cocoapods
 
 fastlane/Appfile
-CountriesApp/Utils/Private.swift
 fastlane/Matchfile

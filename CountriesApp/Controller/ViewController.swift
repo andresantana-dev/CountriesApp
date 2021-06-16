@@ -44,6 +44,8 @@ class ViewController: UIViewController, AlertHelper {
     
     private func displayActionSheet(subregion: String, demonym: String) {
         let optionMenu = UIAlertController(title: nil, message: "country_details".localized, preferredStyle: .actionSheet)
+        optionMenu.popoverPresentationController?.sourceView = tableView
+        optionMenu.popoverPresentationController?.sourceRect = CGRect(x: tableView.bounds.width / 2.0, y: tableView.bounds.height / 2.0, width: 1.0, height: 1.0)
         let subregionAction = UIAlertAction(title: "subregion".localized + subregion, style: .default)
         let demonymAction = UIAlertAction(title: "denomym".localized + demonym, style: .default)
         let cancelAction = UIAlertAction(title: "cancel".localized, style: .cancel)
